@@ -1,0 +1,24 @@
+# import the mod inverse function
+from sympy import mod_inverse
+
+# define the character set
+char_set = "abcdefghijklmnopqrstuvwxyz0123456789_"
+
+# define the list of integers
+int_list = [268, 413, 110, 190, 426, 419, 108, 229, 310, 379, 323, 373, 385, 236, 92, 96, 169, 321, 284, 185, 154, 137, 186]
+
+# define the modulus
+modulus = 41
+
+# define the empty string to hold the decoded message
+decoded_message = ""
+
+# loop through the list of integers
+for i in int_list:
+    # find the modular inverse of the integer mod 41
+    inverse = mod_inverse(i, modulus)
+    # find the character in the character set that corresponds to the modular inverse
+    decoded_message += char_set[inverse - 1]
+
+# print the decoded message
+print(decoded_message)
